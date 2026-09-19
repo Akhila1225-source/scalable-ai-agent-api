@@ -171,7 +171,6 @@ scalable-ai-agent-api/
 ├── requirements.txt
 └── README.md
 
-
 ## Technologies Used
 
 * Python
