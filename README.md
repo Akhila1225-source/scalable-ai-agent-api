@@ -150,8 +150,8 @@ The current prototype contains the following PayPal API tools:
 
 ## Project Structure
 
-scalable-agentic-api-system/
-
+scalable-ai-agent-api/
+│
 ├── app/
 │   ├── main.py
 │   ├── agent.py
@@ -171,6 +171,7 @@ scalable-agentic-api-system/
 ├── requirements.txt
 └── README.md
 
+
 ## Technologies Used
 
 * Python
@@ -188,62 +189,57 @@ scalable-agentic-api-system/
 
 Install the required packages:
 
-```
 pip install -r requirements.txt
-```
 
 Run the agent:
 
-```
 python -m app.agent
-```
+
 
 Run the FastAPI application:
 
-```
+
 python -m uvicorn app.main:app --reload
-```
+
 
 Open the API documentation:
 
-```
+
 http://127.0.0.1:8000/docs
-```
+
 
 ## API Example
 
 Example request:
 
-```
+
 /ask?query=I%20want%20to%20refund%20a%20payment&input_value=P123
-```
+
 
 Example response:
 
-```
+
 {
     "response": {
         "payment_id": "P123",
         "status": "REFUNDED"
     }
 }
-```
+
 
 ## Testing
 
 Run the automated tests using:
 
-```
 python -m pytest
-```
+
 
 The test suite verifies the main agent functions and error handling.
 
 Example result:
 
-```
 4 passed
-```
+
 
 ## Scalability
 
@@ -251,7 +247,6 @@ The current prototype demonstrates the architecture using a small number of APIs
 
 The same architecture can be extended to support:
 
-```
 10 APIs
     ↓
 50+ APIs
@@ -259,7 +254,6 @@ The same architecture can be extended to support:
 100+ APIs
     ↓
 500+ APIs
-```
 
 Instead of passing every available API to the agent, the system first searches the tool catalog and retrieves relevant tools.
 
@@ -279,13 +273,13 @@ For further scaling, the search layer can be extended with:
 
 The project separates the major responsibilities into different modules:
 
-* `agent.py` handles routing and execution.
-* `search.py` handles API tool retrieval.
-* `rag.py` handles knowledge retrieval.
-* `system_search.py` handles system/tool discovery.
-* `state.py` handles agent state.
-* `tools.py` contains mock API functions.
-* `main.py` provides the FastAPI interface.
+* agent.py handles routing and execution.
+* search.py handles API tool retrieval.
+* rag.py handles knowledge retrieval.
+* system_search.py handles system/tool discovery.
+* state.py handles agent state.
+* tools.py contains mock API functions.
+* main.py provides the FastAPI interface.
 
 This modular design makes the system easier to maintain and extend.
 
