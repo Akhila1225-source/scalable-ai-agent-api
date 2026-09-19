@@ -1,0 +1,82 @@
+[
+  {
+    "name": "get_payment",
+    "category": "payments",
+    "method": "GET",
+    "endpoint": "/v1/payments/{payment_id}",
+    "description": "Get payment details using a payment ID",
+    "parameters": ["payment_id"]
+  },
+  {
+    "name": "create_payment",
+    "category": "payments",
+    "method": "POST",
+    "endpoint": "/v1/payments",
+    "description": "Create a new payment using an amount",
+    "parameters": ["amount"]
+  },
+  {
+    "name": "refund_payment",
+    "category": "payments",
+    "method": "POST",
+    "endpoint": "/v1/payments/{payment_id}/refund",
+    "description": "Refund an existing payment using a payment ID",
+    "parameters": ["payment_id"]
+  },
+  {
+    "name": "get_customer",
+    "category": "customers",
+    "method": "GET",
+    "endpoint": "/v1/customers/{customer_id}",
+    "description": "Get customer details using a customer ID",
+    "parameters": ["customer_id"]
+  },
+  {
+    "name": "create_invoice",
+    "category": "invoices",
+    "method": "POST",
+    "endpoint": "/v1/invoices",
+    "description": "Create an invoice for a customer",
+    "parameters": ["customer_id", "amount"]
+  },
+  {
+    "name": "send_invoice",
+    "category": "invoices",
+    "method": "POST",
+    "endpoint": "/v1/invoices/{invoice_id}/send",
+    "description": "Send an invoice to a customer",
+    "parameters": ["invoice_id"]
+  },
+  {
+    "name": "get_invoice",
+    "category": "invoices",
+    "method": "GET",
+    "endpoint": "/v1/invoices/{invoice_id}",
+    "description": "Get invoice details using an invoice ID",
+    "parameters": ["invoice_id"]
+  },
+  {
+    "name": "get_dispute",
+    "category": "disputes",
+    "method": "GET",
+    "endpoint": "/v1/disputes/{dispute_id}",
+    "description": "Get dispute details using a dispute ID",
+    "parameters": ["dispute_id"]
+  },
+  {
+    "name": "list_disputes",
+    "category": "disputes",
+    "method": "GET",
+    "endpoint": "/v1/disputes",
+    "description": "List available payment disputes",
+    "parameters": []
+  },
+  {
+    "name": "get_sales_report",
+    "category": "reports",
+    "method": "GET",
+    "endpoint": "/v1/reports/sales",
+    "description": "Get sales volume and transaction reports",
+    "parameters": ["start_date", "end_date"]
+  }
+]
