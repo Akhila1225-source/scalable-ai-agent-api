@@ -24,6 +24,63 @@
     "parameters": ["payment_id"]
   },
   {
+    "name": "cancel_payment",
+    "category": "payments",
+    "method": "POST",
+    "endpoint": "/v1/payments/{payment_id}/cancel",
+    "description": "Cancel a payment using a payment ID",
+    "parameters": ["payment_id"]
+  },
+  {
+    "name": "capture_payment",
+    "category": "payments",
+    "method": "POST",
+    "endpoint": "/v1/payments/{payment_id}/capture",
+    "description": "Capture an authorized payment",
+    "parameters": ["payment_id"]
+  },
+  {
+    "name": "authorize_payment",
+    "category": "payments",
+    "method": "POST",
+    "endpoint": "/v1/payments/authorize",
+    "description": "Authorize a payment for a specified amount",
+    "parameters": ["amount"]
+  },
+  {
+    "name": "list_payments",
+    "category": "payments",
+    "method": "GET",
+    "endpoint": "/v1/payments",
+    "description": "List available payments",
+    "parameters": []
+  },
+  {
+    "name": "search_payments",
+    "category": "payments",
+    "method": "GET",
+    "endpoint": "/v1/payments/search",
+    "description": "Search payments using search criteria",
+    "parameters": ["query"]
+  },
+  {
+    "name": "update_payment",
+    "category": "payments",
+    "method": "PATCH",
+    "endpoint": "/v1/payments/{payment_id}",
+    "description": "Update payment information",
+    "parameters": ["payment_id"]
+  },
+  {
+    "name": "verify_payment",
+    "category": "payments",
+    "method": "GET",
+    "endpoint": "/v1/payments/{payment_id}/verify",
+    "description": "Verify the status of a payment",
+    "parameters": ["payment_id"]
+  },
+
+  {
     "name": "get_customer",
     "category": "customers",
     "method": "GET",
@@ -31,6 +88,39 @@
     "description": "Get customer details using a customer ID",
     "parameters": ["customer_id"]
   },
+  {
+    "name": "create_customer",
+    "category": "customers",
+    "method": "POST",
+    "endpoint": "/v1/customers",
+    "description": "Create a new customer",
+    "parameters": ["name", "email"]
+  },
+  {
+    "name": "update_customer",
+    "category": "customers",
+    "method": "PATCH",
+    "endpoint": "/v1/customers/{customer_id}",
+    "description": "Update customer information",
+    "parameters": ["customer_id"]
+  },
+  {
+    "name": "delete_customer",
+    "category": "customers",
+    "method": "DELETE",
+    "endpoint": "/v1/customers/{customer_id}",
+    "description": "Delete a customer",
+    "parameters": ["customer_id"]
+  },
+  {
+    "name": "list_customers",
+    "category": "customers",
+    "method": "GET",
+    "endpoint": "/v1/customers",
+    "description": "List available customers",
+    "parameters": []
+  },
+
   {
     "name": "create_invoice",
     "category": "invoices",
@@ -56,6 +146,23 @@
     "parameters": ["invoice_id"]
   },
   {
+    "name": "update_invoice",
+    "category": "invoices",
+    "method": "PATCH",
+    "endpoint": "/v1/invoices/{invoice_id}",
+    "description": "Update invoice information",
+    "parameters": ["invoice_id"]
+  },
+  {
+    "name": "delete_invoice",
+    "category": "invoices",
+    "method": "DELETE",
+    "endpoint": "/v1/invoices/{invoice_id}",
+    "description": "Delete an invoice",
+    "parameters": ["invoice_id"]
+  },
+
+  {
     "name": "get_dispute",
     "category": "disputes",
     "method": "GET",
@@ -72,11 +179,273 @@
     "parameters": []
   },
   {
+    "name": "create_dispute",
+    "category": "disputes",
+    "method": "POST",
+    "endpoint": "/v1/disputes",
+    "description": "Create a payment dispute",
+    "parameters": ["payment_id", "reason"]
+  },
+  {
+    "name": "update_dispute",
+    "category": "disputes",
+    "method": "PATCH",
+    "endpoint": "/v1/disputes/{dispute_id}",
+    "description": "Update dispute information",
+    "parameters": ["dispute_id"]
+  },
+  {
+    "name": "close_dispute",
+    "category": "disputes",
+    "method": "POST",
+    "endpoint": "/v1/disputes/{dispute_id}/close",
+    "description": "Close a payment dispute",
+    "parameters": ["dispute_id"]
+  },
+
+  {
+    "name": "get_refund",
+    "category": "refunds",
+    "method": "GET",
+    "endpoint": "/v1/refunds/{refund_id}",
+    "description": "Get refund details using a refund ID",
+    "parameters": ["refund_id"]
+  },
+  {
+    "name": "list_refunds",
+    "category": "refunds",
+    "method": "GET",
+    "endpoint": "/v1/refunds",
+    "description": "List available refunds",
+    "parameters": []
+  },
+  {
+    "name": "create_refund",
+    "category": "refunds",
+    "method": "POST",
+    "endpoint": "/v1/refunds",
+    "description": "Create a refund for a payment",
+    "parameters": ["payment_id", "amount"]
+  },
+  {
+    "name": "cancel_refund",
+    "category": "refunds",
+    "method": "POST",
+    "endpoint": "/v1/refunds/{refund_id}/cancel",
+    "description": "Cancel a refund",
+    "parameters": ["refund_id"]
+  },
+  {
+    "name": "update_refund",
+    "category": "refunds",
+    "method": "PATCH",
+    "endpoint": "/v1/refunds/{refund_id}",
+    "description": "Update refund information",
+    "parameters": ["refund_id"]
+  },
+
+  {
+    "name": "create_payout",
+    "category": "payouts",
+    "method": "POST",
+    "endpoint": "/v1/payouts",
+    "description": "Create a payout",
+    "parameters": ["amount", "recipient"]
+  },
+  {
+    "name": "get_payout",
+    "category": "payouts",
+    "method": "GET",
+    "endpoint": "/v1/payouts/{payout_id}",
+    "description": "Get payout details",
+    "parameters": ["payout_id"]
+  },
+  {
+    "name": "list_payouts",
+    "category": "payouts",
+    "method": "GET",
+    "endpoint": "/v1/payouts",
+    "description": "List available payouts",
+    "parameters": []
+  },
+  {
+    "name": "cancel_payout",
+    "category": "payouts",
+    "method": "POST",
+    "endpoint": "/v1/payouts/{payout_id}/cancel",
+    "description": "Cancel a payout",
+    "parameters": ["payout_id"]
+  },
+  {
+    "name": "update_payout",
+    "category": "payouts",
+    "method": "PATCH",
+    "endpoint": "/v1/payouts/{payout_id}",
+    "description": "Update payout information",
+    "parameters": ["payout_id"]
+  },
+
+  {
+    "name": "create_subscription",
+    "category": "subscriptions",
+    "method": "POST",
+    "endpoint": "/v1/subscriptions",
+    "description": "Create a customer subscription",
+    "parameters": ["customer_id", "plan_id"]
+  },
+  {
+    "name": "get_subscription",
+    "category": "subscriptions",
+    "method": "GET",
+    "endpoint": "/v1/subscriptions/{subscription_id}",
+    "description": "Get subscription details",
+    "parameters": ["subscription_id"]
+  },
+  {
+    "name": "update_subscription",
+    "category": "subscriptions",
+    "method": "PATCH",
+    "endpoint": "/v1/subscriptions/{subscription_id}",
+    "description": "Update a customer subscription",
+    "parameters": ["subscription_id"]
+  },
+  {
+    "name": "cancel_subscription",
+    "category": "subscriptions",
+    "method": "POST",
+    "endpoint": "/v1/subscriptions/{subscription_id}/cancel",
+    "description": "Cancel a customer subscription",
+    "parameters": ["subscription_id"]
+  },
+  {
+    "name": "list_subscriptions",
+    "category": "subscriptions",
+    "method": "GET",
+    "endpoint": "/v1/subscriptions",
+    "description": "List customer subscriptions",
+    "parameters": []
+  },
+
+  {
     "name": "get_sales_report",
     "category": "reports",
     "method": "GET",
     "endpoint": "/v1/reports/sales",
     "description": "Get sales volume and transaction reports",
     "parameters": ["start_date", "end_date"]
+  },
+  {
+    "name": "get_transaction_report",
+    "category": "reports",
+    "method": "GET",
+    "endpoint": "/v1/reports/transactions",
+    "description": "Get transaction reports",
+    "parameters": ["start_date", "end_date"]
+  },
+  {
+    "name": "get_payment_report",
+    "category": "reports",
+    "method": "GET",
+    "endpoint": "/v1/reports/payments",
+    "description": "Get payment activity reports",
+    "parameters": ["start_date", "end_date"]
+  },
+  {
+    "name": "get_customer_report",
+    "category": "reports",
+    "method": "GET",
+    "endpoint": "/v1/reports/customers",
+    "description": "Get customer activity reports",
+    "parameters": ["start_date", "end_date"]
+  },
+  {
+    "name": "get_refund_report",
+    "category": "reports",
+    "method": "GET",
+    "endpoint": "/v1/reports/refunds",
+    "description": "Get refund reports",
+    "parameters": ["start_date", "end_date"]
+  },
+
+  {
+    "name": "create_order",
+    "category": "orders",
+    "method": "POST",
+    "endpoint": "/v1/orders",
+    "description": "Create a new order",
+    "parameters": ["amount", "customer_id"]
+  },
+  {
+    "name": "get_order",
+    "category": "orders",
+    "method": "GET",
+    "endpoint": "/v1/orders/{order_id}",
+    "description": "Get order details",
+    "parameters": ["order_id"]
+  },
+  {
+    "name": "update_order",
+    "category": "orders",
+    "method": "PATCH",
+    "endpoint": "/v1/orders/{order_id}",
+    "description": "Update order information",
+    "parameters": ["order_id"]
+  },
+  {
+    "name": "cancel_order",
+    "category": "orders",
+    "method": "POST",
+    "endpoint": "/v1/orders/{order_id}/cancel",
+    "description": "Cancel an order",
+    "parameters": ["order_id"]
+  },
+  {
+    "name": "list_orders",
+    "category": "orders",
+    "method": "GET",
+    "endpoint": "/v1/orders",
+    "description": "List available orders",
+    "parameters": []
+  },
+
+  {
+    "name": "get_account",
+    "category": "accounts",
+    "method": "GET",
+    "endpoint": "/v1/account",
+    "description": "Get account information",
+    "parameters": []
+  },
+  {
+    "name": "update_account",
+    "category": "accounts",
+    "method": "PATCH",
+    "endpoint": "/v1/account",
+    "description": "Update account information",
+    "parameters": []
+  },
+  {
+    "name": "get_balance",
+    "category": "accounts",
+    "method": "GET",
+    "endpoint": "/v1/account/balance",
+    "description": "Get current account balance",
+    "parameters": []
+  },
+  {
+    "name": "get_transaction",
+    "category": "transactions",
+    "method": "GET",
+    "endpoint": "/v1/transactions/{transaction_id}",
+    "description": "Get transaction details",
+    "parameters": ["transaction_id"]
+  },
+  {
+    "name": "list_transactions",
+    "category": "transactions",
+    "method": "GET",
+    "endpoint": "/v1/transactions",
+    "description": "List account transactions",
+    "parameters": []
   }
 ]
